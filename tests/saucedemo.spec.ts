@@ -14,6 +14,7 @@ test('bad_pswd', async ({ page }) => {
   await page.locator('[data-test="password"]').fill('abcd');
   await page.locator('[data-test="login-button"]').click();
   await expect(page.locator('[data-test="error"]')).toBeVisible();
+  await expect(page.getByText('Epic sadface: Username and password do not match any user in this service'))
 });
 
 
