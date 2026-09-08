@@ -1,0 +1,23 @@
+{
+  "name": "ai-sdet-portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Param2596/ai-sdet-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Param2596/ai-sdet-portfolio/issues"
+  },
+  "homepage": "https://github.com/Param2596/ai-sdet-portfolio#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.5.0"
+  }
+}
