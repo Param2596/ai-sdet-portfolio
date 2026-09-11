@@ -11,7 +11,7 @@ export class InventoryPage{
         await this.page.locator('[data-test="shopping-cart-link"]').click();
     }
     async checkProductInCart(productname: string){
-        await expect ( this.page.getByText(productname)).toBeVisible();
+        await expect ( this.page.locator('.cart_item').filter({hasText: productname}));
     }
 
     async checkProductsInCart(productnames : string[]){
