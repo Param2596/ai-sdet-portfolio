@@ -9,11 +9,11 @@ export const Products = {
 } as const;
 
 export const Products_cart = {
-    backpack: '1Sauce Labs Backpackcarry.',
-    bikeLight: '1Sauce Labs Bike LightA red',
-    tshirt: '1Sauce Labs Bolt T-ShirtGet',
-    jacket: '1Sauce Labs Fleece JacketIt\'s',
-    onesie: '1Sauce Labs OnesieRib snap',
-    redTshirt: '1Test.allTheThings() T-Shirt'
+    backpack: 'Sauce Labs Backpack',
+    bikeLight: 'Sauce Labs Bike Light',
+    tshirt: 'Sauce Labs Bolt T-Shirt',
+    jacket: 'Sauce Labs Fleece Jacket',
+    onesie: 'Sauce Labs Onesie',
+    redTshirt: 'Test.allTheThings() T-Shirt'
 
 } as const;
