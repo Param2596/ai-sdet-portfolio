@@ -13,6 +13,7 @@ export class InventoryPage{
     async checkProductInCart(productname: string){
         await expect ( this.page.getByText(productname)).toBeVisible();
     }
+
     async checkProductsInCart(productnames : string[]){
         for(const name of productnames){
             await this.checkProductInCart(name);
