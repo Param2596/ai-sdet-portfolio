@@ -12,6 +12,19 @@ test('get /posts returns 200 and 100 items', async({request}) => {
     expect(body.length).toBe(100);
 });
 
+test('get /posts returns 200 and 1 item', async({request}) => {
+    const res = await request.get(url + '/1');
+   
+    expect(res.status()).toBe(200);
+
+    const body = await res.json();
+    expect(body.id).toBe(1);
+    expect(body).toHaveProperty('title');
+    expect(body).toHaveProperty('userId');
+});
+
+
+
 test('POST /post creates a resource', async ({request}) => {
     const res = await request.post(url, {
         data: {
@@ -25,7 +38,6 @@ test('POST /post creates a resource', async ({request}) => {
 
     const body = await res.json();
     expect(body.title).toBe('sdet-api');
-    expect(body).toHaveProperty('id');
-    
+    expect(body).toHaveProperty('id');   
 }
 );
