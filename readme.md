@@ -1,29 +1,35 @@
-# Getting started with playwright
+# ai-sdet-portfolio
 
-1. First, create an empty directory where you'lll be saving tests
+[![Playwright Tests](https://github.com/Param2596/ai-sdet-portfolio/actions/workflows/playwright.yml/badge.svg)](https://github.com/Param2596/ai-sdet-portfolio/actions/workflows/playwright.yml)
 
-2. After creating directory, run `npm init playwright@latest` to install playwright (run `git init` if you haven't yet)
+## What this is
 
-3. Choose: TypeScript, tests in tests, GitHub Actions Yes, install browsers Yes as setup (This is the setup I've done acc to my requirements, you can choose any language you're comfortable with)
+Playwright tests covering UI automation, API testing, and CI.
 
-4. This will setup basic playwright directories on your folder and after its complete, you'll be able to run tests in playwright
+## Stack
 
-5. To run the basic pre-installed tests, run the following command:
+**UI** - SauceDemo + POM via TypeScript
 
-```bash
-npx playwright test
-```
+**API** - Playwright `request` + JSONPlaceholder
 
-Note: this command will run the tests available in tests folder, which are denoted by ts files with ".spec.ts" extension. so for ex if you write a new test in tests folder, name it as "abc.spec.ts" and it'll run with this command
+## How to run
 
-6. to see the report of tests run, execute this command:
+Clone the repository and run the following commands in the terminal:
 
-```bash
-npx playwright show-report
-```
+    npm ci
+    npx playwright install
+    npx playwright test
 
-7. In this commit, I've done a basic test on saucedemo website ([https://www.saucedemo.com/](https://www.saucedemo.com/)), tested basic user/password login with valid cridentials and checking if the correct validation appears at bad login.
+## Structure
 
-8. As i didnt hv much knowledge on how to select elements and do actions, I basically just ran `npx playwright codegen https://www.saucedemo.com/`, this way the actions i performed were converted into code, which i then used to write my tests.
+`pages/` - Contains methods for performing actions on pages via UI.
 
-9. And ts is all, thanks for looking into my repo :)
+`tests/` - Contains GUI tests in the root folder.
+
+`tests/api/` - Contains API tests.
+
+`utils/` - Contains mappings for technical element names with simple variables.
+
+## Why this design
+
+POM keeps locators, etc. out of specs. API tests assert status codes and JSON responses. CI ensures the tests work across environments.
