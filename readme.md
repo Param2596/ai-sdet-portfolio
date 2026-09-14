@@ -30,6 +30,10 @@ Clone the repository and run the following commands in the terminal:
 
 `utils/` - Contains mappings for technical element names with simple variables.
 
+## AI layer
+Rule-based Playwright failure summarizer + golden eval.
+npm run ai:eval
+
 ## Why this design
 
 POM keeps locators, etc. out of specs. API tests assert status codes and JSON responses. CI ensures the tests work across environments.
