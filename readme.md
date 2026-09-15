@@ -32,7 +32,10 @@ Clone the repository and run the following commands in the terminal:
 
 ## AI layer
 Rule-based Playwright failure summarizer + golden eval.
-npm run ai:eval
+
+    npm run ai:eval
+
+CI runs Playwright tests and `ai:eval` as separate jobs.
 
 ## Why this design
 

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
-    "ai:eval": "npx tsx ai/runGolden.ts"
+    "ai:eval": "tsx ai/runGolden.ts"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Param2596/ai-sdet-portfolio#readme",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.5.1"
+    "@types/node": "^26.5.1",
+    "tsx": "^4.23.13"
   }
 }
