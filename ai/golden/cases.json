@@ -18,5 +18,15 @@
     "id": "unknown-1",
     "log": "Error: something weird happened in teardown",
     "expectCauseIncludes": "Unknown"
+  },
+  {
+    "id": "cert-1",
+    "log": "SSL Handshake failed. Unable to connect to server",
+    "expectCauseIncludes": "cert"
+  },
+  {
+    "id": "auth-1",
+    "log": "401. Unauthorized",
+    "expectCauseIncludes": "auth"
   }
 ]

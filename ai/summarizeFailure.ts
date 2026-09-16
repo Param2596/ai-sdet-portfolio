@@ -32,6 +32,22 @@ export function summarizeFailure(log : string): FailureSummary{
         };
     }
 
+    if(text.includes('ssl') || text.includes('certificate')){
+        return{
+            cause: 'Likely missing/invalid cert or authentication method',
+            nextStep: 'Check if cert/auth is valid, verify TLS version is compatible',
+            tags: ['cert'],
+        };
+    }
+
+    if(text.includes('401') || text.includes('unauthorized') || text.includes('authentication failed')){
+        return{
+            cause: 'Unable to authenricate client, not logged in/ bad cridnetials',
+            nextStep: 'Check token/cookie/API key is present and not expired, Re-login / refresh session before the request',
+            tags:['authentication']
+        };
+    }
+
     return {
         cause: 'Unknown — no clear keyword match',
         nextStep: 'Paste full error + trace; narrow with expect error message',
