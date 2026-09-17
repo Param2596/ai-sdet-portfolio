@@ -34,7 +34,7 @@ export function summarizeFailure(log : string): FailureSummary{
 
     if(text.includes('ssl') || text.includes('certificate')){
         return{
-            cause: 'Likely missing/invalid cert or authentication method',
+            cause: 'Likely missing/invalid cert ',
             nextStep: 'Check if cert/auth is valid, verify TLS version is compatible',
             tags: ['cert'],
         };

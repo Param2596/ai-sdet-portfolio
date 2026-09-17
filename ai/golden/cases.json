@@ -1,23 +1,8 @@
 [
   {
-    "id": "timeout-1",
-    "log": "Error: Timeout 5000ms exceeded.\nwaiting for locator('[data-test=\"username\"]')",
-    "expectCauseIncludes": "timing"
-  },
-  {
-    "id": "visible-1",
-    "log": "Error: expect(locator).toBeVisible() failed\nelement(s) not found",
-    "expectCauseIncludes": "locator"
-  },
-  {
     "id": "net-1",
     "log": "Error: net::ERR_CONNECTION_REFUSED at https://api.example.com",
     "expectCauseIncludes": "network"
-  },
-  {
-    "id": "unknown-1",
-    "log": "Error: something weird happened in teardown",
-    "expectCauseIncludes": "Unknown"
   },
   {
     "id": "cert-1",
@@ -28,5 +13,20 @@
     "id": "auth-1",
     "log": "401. Unauthorized",
     "expectCauseIncludes": "auth"
+  },
+  {
+    "id": "timeout-1",
+    "log": "Error: Timeout 5000ms exceeded.\nwaiting for locator('[data-test=\"username\"]')",
+    "expectCauseIncludes": "timing"
+  },
+  {
+    "id": "visible-1",
+    "log": "Error: expect(locator).toBeVisible() failed\nelement(s) not found",
+    "expectCauseIncludes": "locator"
+  },
+  {
+    "id": "unknown-1",
+    "log": "Error: something weird happened in teardown",
+    "expectCauseIncludes": "Unknown"
   }
 ]
