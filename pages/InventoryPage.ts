@@ -24,4 +24,12 @@ export class InventoryPage{
     async checkCartNumber(n : number){
         await expect (this.page.locator('[data-test="shopping-cart-badge"]')).toHaveText(String(n));
     }
+
+    async openMenu(){
+        await this.page.getByRole('button', { name: 'Open Menu' }).click();
+    }
+
+    async logout(){
+        await this.page.locator('[data-test="logout-sidebar-link"]').click();
+    }
 }
