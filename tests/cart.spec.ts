@@ -1,4 +1,6 @@
 import { test, expect } from '../fixtures/testFixtures';
+import { InventoryPage } from '../pages/InventoryPage';
+import { LoginPage } from '../pages/LoginPage';
 import { Products, Products_cart } from '../utils/products';
 
 test('cart_count', async ({ loginPage, inventoryPage, page }) => {
@@ -19,3 +21,29 @@ test('cart_count', async ({ loginPage, inventoryPage, page }) => {
     Products_cart.redTshirt,
   ]);
 });
+
+test('remove_updates_badge', async ({loginPage, inventoryPage, page}) => {
+  void loginPage;
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.addToCart(Products.redTshirt);
+
+  await inventoryPage.checkCartNumber(2);
+
+  await inventoryPage.removefromCart(Products.redTshirt);
+  await inventoryPage.checkCartNumber(1);
+  await inventoryPage.removefromCart(Products.backpack);
+  await inventoryPage.checkCartNumber(0);
+
+  for (const slug of Object.values(Products)) {
+    await inventoryPage.addToCart(slug);
+  }
+
+  await inventoryPage.checkCartNumber(6);
+  await inventoryPage.removefromCart(Products.jacket);
+  await inventoryPage.removefromCart(Products.tshirt);
+  await inventoryPage.checkCartNumber(4);
+});
+
+
+

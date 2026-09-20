@@ -7,6 +7,9 @@ export class InventoryPage{
     async addToCart(productname: string){
         await this.page.locator(`[data-test="add-to-cart-${productname}"]`).click();
     }
+    async removefromCart(productname:string){
+        await this.page.locator(`[data-test="remove-${productname}"]`).click();
+    }
     async openCart(){
         await this.page.locator('[data-test="shopping-cart-link"]').click();
     }
@@ -22,7 +25,13 @@ export class InventoryPage{
         }
     }
     async checkCartNumber(n : number){
-        await expect (this.page.locator('[data-test="shopping-cart-badge"]')).toHaveText(String(n));
+        const badge = this.page.locator('[data-test="shopping-cart-badge"]');
+        if(n == 0){
+            await expect(badge).toHaveCount(0);
+        }
+        else{
+            await expect(badge).toHaveText(String(n));
+        }
     }
 
     async openMenu(){
@@ -32,4 +41,13 @@ export class InventoryPage{
     async logout(){
         await this.page.locator('[data-test="logout-sidebar-link"]').click();
     }
+
+    async sortBy(value: 'az' | 'za' | 'lohi' | 'hilo') {
+        await this.page.locator('[data-test="product-sort-container"]').selectOption(value);
+    }
+
+    async getFirstProductName() {
+        return this.page.locator('.inventory_item_name').first().textContent();
+    }
+    
 }
