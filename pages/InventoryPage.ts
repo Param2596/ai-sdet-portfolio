@@ -50,4 +50,13 @@ export class InventoryPage{
         return this.page.locator('.inventory_item_name').first().textContent();
     }
     
+
+        // InventoryPage
+async openProduct(titleLinkTestId: string) {
+  const link = this.page.locator(`[data-test="${titleLinkTestId}"]`);
+  await Promise.all([
+    this.page.waitForURL(/inventory-item\.html/),
+    link.click(),
+  ]);
+}
 }
