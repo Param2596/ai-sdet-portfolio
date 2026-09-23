@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 
 export class CheckoutInfoPage {
   constructor(private readonly page: Page) {}
@@ -9,8 +9,20 @@ export class CheckoutInfoPage {
     await this.page.locator('[data-test="postalCode"]').fill(zip);
   }
 
-  async continue() {
+  async clickContinue() {
     await this.page.locator('[data-test="continue"]').click();
+  }
+
+  async continue() {
+    await this.clickContinue();
     await this.page.waitForURL(/checkout-step-two\.html/);
+  }
+
+  async expectErrorVisible() {
+    await expect(this.page.locator('[data-test="error"]')).toBeVisible();
+  }
+
+  async expectErrorText(text: string) {
+    await expect(this.page.getByText(text)).toBeVisible();
   }
 }

@@ -41,3 +41,57 @@ test('checkout_finishes_order', async ({ loginPage, inventoryPage, page }) => {
   await complete.expectThankYou();
   await expect(page).toHaveURL(/checkout-complete\.html/);
 });
+
+test('checkout_empty_first_name', async ({ loginPage, inventoryPage, page }) => {
+  void loginPage;
+
+  const cartPage = new CartPage(page);
+  const checkoutInfo = new CheckoutInfoPage(page);
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.openCart();
+  await cartPage.checkout();
+
+  await checkoutInfo.fillInfo('', 'Singh', '110001');
+  await checkoutInfo.clickContinue();
+
+  await checkoutInfo.expectErrorVisible();
+  await checkoutInfo.expectErrorText('Error: First Name is required');
+  await expect(page).toHaveURL(/checkout-step-one\.html/);
+});
+
+test('checkout_empty_last_name', async ({ loginPage, inventoryPage, page }) => {
+  void loginPage;
+
+  const cartPage = new CartPage(page);
+  const checkoutInfo = new CheckoutInfoPage(page);
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.openCart();
+  await cartPage.checkout();
+
+  await checkoutInfo.fillInfo('Paramjot', '', '110001');
+  await checkoutInfo.clickContinue();
+
+  await checkoutInfo.expectErrorVisible();
+  await checkoutInfo.expectErrorText('Error: Last Name is required');
+  await expect(page).toHaveURL(/checkout-step-one\.html/);
+});
+
+test('checkout_empty_postal_code', async ({ loginPage, inventoryPage, page }) => {
+  void loginPage;
+
+  const cartPage = new CartPage(page);
+  const checkoutInfo = new CheckoutInfoPage(page);
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.openCart();
+  await cartPage.checkout();
+
+  await checkoutInfo.fillInfo('Paramjot', 'Singh', '');
+  await checkoutInfo.clickContinue();
+
+  await checkoutInfo.expectErrorVisible();
+  await checkoutInfo.expectErrorText('Error: Postal Code is required');
+  await expect(page).toHaveURL(/checkout-step-one\.html/);
+});
