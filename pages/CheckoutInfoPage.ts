@@ -25,4 +25,8 @@ export class CheckoutInfoPage {
   async expectErrorText(text: string) {
     await expect(this.page.getByText(text)).toBeVisible();
   }
+  async cancelCheckout(){
+    await this.page.locator('[data-test = "cancel"]').click();
+    await this.page.waitForURL('**/cart.html');
+  }
 }

@@ -3,6 +3,7 @@ import { CartPage } from '../pages/CartPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { LoginPage } from '../pages/LoginPage';
 import { Products, Products_cart } from '../utils/products';
+import { CheckoutInfoPage } from '../pages/CheckoutInfoPage';
 
 test('cart_count', async ({ loginPage, inventoryPage, page }) => {
   // loginPage fixture already logged you in — keep it in the args so it runs
@@ -61,7 +62,7 @@ test('continue_shopping', async ({loginPage, inventoryPage, cartPage, page}) => 
   await inventoryPage.checkCartNumber(2);
 });
 
-test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, page}) => {
+test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, checkoutInfoPage, page}) => {
   void loginPage;
 
   await inventoryPage.addToCart(Products.backpack);
@@ -73,9 +74,9 @@ test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, page}) => 
 
   await cartPage.checkout();
 
-  await cartPage.cancelCheckout();
+  await checkoutInfoPage.cancelCheckout();
 
-
+  await inventoryPage.checkCartNumber(2);
 });
 
 

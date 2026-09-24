@@ -3,11 +3,13 @@ import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { credentials } from '../utils/credentials';
 import { CartPage } from '../pages/CartPage';
+import { CheckoutInfoPage } from '../pages/CheckoutInfoPage';
 
 export const test = base.extend<{
   loginPage: LoginPage;
   inventoryPage: InventoryPage;
   cartPage: CartPage;
+  checkoutInfoPage: CheckoutInfoPage;
 }>({
   loginPage: async ({ page }, use) => {
     const loginPage = new LoginPage(page);
@@ -20,7 +22,10 @@ export const test = base.extend<{
   },
   cartPage: async ({ page }, use) =>{
     await use(new CartPage(page));
-  } 
+  },
+  checkoutInfoPage: async ({ page }, use) =>{
+    await use(new CheckoutInfoPage(page));
+  },
 });
 
 export { expect };
