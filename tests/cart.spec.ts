@@ -61,5 +61,23 @@ test('continue_shopping', async ({loginPage, inventoryPage, cartPage, page}) => 
   await inventoryPage.checkCartNumber(2);
 });
 
+test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, page}) => {
+  void loginPage;
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.addToCart(Products.onesie);
+
+  await inventoryPage.checkCartNumber(2);
+
+  await inventoryPage.openCart();
+
+  await cartPage.checkout();
+
+  await cartPage.cancelCheckout();
+
+
+});
+
+
 
 

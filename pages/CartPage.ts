@@ -11,4 +11,8 @@ export class CartPage {
     await this.page.locator('[data-test = "continue-shopping"]').click();
     await this.page.waitForURL('**/inventory.html');
   }
+  async cancelCheckout(){
+    await this.page.locator('[data-test = "cancel"]').click();
+    await this.page.waitForURL('**/cart.html');
+  }
 }
