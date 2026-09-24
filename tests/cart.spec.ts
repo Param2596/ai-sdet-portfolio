@@ -1,4 +1,5 @@
 import { test, expect } from '../fixtures/testFixtures';
+import { CartPage } from '../pages/CartPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { LoginPage } from '../pages/LoginPage';
 import { Products, Products_cart } from '../utils/products';
@@ -43,6 +44,21 @@ test('remove_updates_badge', async ({loginPage, inventoryPage, page}) => {
   await inventoryPage.removefromCart(Products.jacket);
   await inventoryPage.removefromCart(Products.tshirt);
   await inventoryPage.checkCartNumber(4);
+});
+
+test('continue_shopping', async ({loginPage, inventoryPage, cartPage, page}) => {
+  void loginPage;
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.addToCart(Products.redTshirt);
+
+  await inventoryPage.checkCartNumber(2);
+
+  await inventoryPage.openCart();
+
+  await cartPage.continueShopping();
+
+  await inventoryPage.checkCartNumber(2);
 });
 
 

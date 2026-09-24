@@ -7,4 +7,8 @@ export class CartPage {
     await this.page.locator('[data-test="checkout"]').click();
     await this.page.waitForURL(/checkout-step-one\.html/);
   }
+  async continueShopping() {
+    await this.page.locator('[data-test = "continue-shopping"]').click();
+    await this.page.waitForURL('**/inventory.html');
+  }
 }
