@@ -34,12 +34,22 @@ export class InventoryPage{
         }
     }
 
-    async openMenu(){
-        await this.page.getByRole('button', { name: 'Open Menu' }).click();
+    async openMenu() {
+    await this.page.getByRole('button', { name: 'Open Menu' }).click();
+    await expect(this.page.getByRole('button', { name: 'Close Menu' })).toBeVisible();
     }
 
-    async logout(){
-        await this.page.locator('[data-test="logout-sidebar-link"]').click();
+    async resetAppState() {
+    await this.openMenu();
+    await this.page.getByRole('navigation').getByRole('button', { name: 'Reset App State' }).click();
+    }
+
+    async logout() {
+    await this.page.getByRole('button', { name: 'Logout' }).click();
+    }
+
+    async closeMenu() {
+        await this.page.getByRole('button', { name: 'Close Menu' }).click();
     }
 
     async sortBy(value: 'az' | 'za' | 'lohi' | 'hilo') {
@@ -52,11 +62,11 @@ export class InventoryPage{
     
 
         // InventoryPage
-async openProduct(titleLinkTestId: string) {
-  const link = this.page.locator(`[data-test="${titleLinkTestId}"]`);
-  await Promise.all([
-    this.page.waitForURL(/inventory-item\.html/),
-    link.click(),
-  ]);
-}
+    async openProduct(titleLinkTestId: string) {
+        const link = this.page.locator(`[data-test="${titleLinkTestId}"]`);
+        await Promise.all([
+        this.page.waitForURL(/inventory-item\.html/),
+        link.click(),
+    ]);
+    }
 }
