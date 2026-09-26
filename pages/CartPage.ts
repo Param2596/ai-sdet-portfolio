@@ -11,5 +11,9 @@ export class CartPage {
     await this.page.locator('[data-test = "continue-shopping"]').click();
     await this.page.waitForURL('**/inventory.html');
   }
+  
+async removeItem(productname: string) {
+  await this.page.locator(`[data-test="remove-${productname}"]`).click();
+}
 
 }

@@ -79,6 +79,22 @@ test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, checkoutIn
   await inventoryPage.checkCartNumber(2);
 });
 
+test('remove_from_cart_page', async ({ loginPage, inventoryPage, cartPage, page }) => {
+  void loginPage;
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.addToCart(Products.onesie);
+  await inventoryPage.checkCartNumber(2);
+
+  await inventoryPage.openCart();
+
+  await cartPage.removeItem(Products.backpack);
+
+  await expect(page.locator('.cart_item').filter({ hasText: Products_cart.backpack })).toHaveCount(0);
+  await inventoryPage.checkProductInCart(Products_cart.onesie);
+  await inventoryPage.checkCartNumber(1);
+});
+
 
 
 
