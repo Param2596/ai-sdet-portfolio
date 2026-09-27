@@ -95,3 +95,25 @@ test('checkout_empty_postal_code', async ({ loginPage, inventoryPage, page }) =>
   await checkoutInfo.expectErrorText('Error: Postal Code is required');
   await expect(page).toHaveURL(/checkout-step-one\.html/);
 });
+
+test('checkout_overview_totals_match', async ({
+  loginPage,
+  inventoryPage,
+  cartPage,
+  checkoutInfoPage,
+  page,
+}) => {
+  void loginPage;
+
+  const overview = new CheckoutOverviewPage(page);
+
+  await inventoryPage.addToCart(Products.backpack);
+  await inventoryPage.addToCart(Products.bikeLight);
+  await inventoryPage.openCart();
+  await cartPage.checkout();
+  await checkoutInfoPage.fillInfo('Paramjot', 'Singh', '110001');
+  await checkoutInfoPage.continue();
+
+  await expect(page).toHaveURL(/checkout-step-two\.html/);
+  await overview.expectTotalsMatch();
+});
