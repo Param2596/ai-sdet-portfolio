@@ -7,7 +7,7 @@ import { CheckoutInfoPage } from '../pages/CheckoutInfoPage';
 
 test('cart_count', async ({ loginPage, inventoryPage, page }) => {
   // loginPage fixture already logged you in — keep it in the args so it runs
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
   await inventoryPage.addToCart(Products.backpack);
@@ -25,7 +25,7 @@ test('cart_count', async ({ loginPage, inventoryPage, page }) => {
 });
 
 test('remove_updates_badge', async ({loginPage, inventoryPage, page}) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   await inventoryPage.addToCart(Products.backpack);
   await inventoryPage.addToCart(Products.redTshirt);
@@ -48,7 +48,7 @@ test('remove_updates_badge', async ({loginPage, inventoryPage, page}) => {
 });
 
 test('continue_shopping', async ({loginPage, inventoryPage, cartPage, page}) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   await inventoryPage.addToCart(Products.backpack);
   await inventoryPage.addToCart(Products.redTshirt);
@@ -63,7 +63,7 @@ test('continue_shopping', async ({loginPage, inventoryPage, cartPage, page}) => 
 });
 
 test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, checkoutInfoPage, page}) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   await inventoryPage.addToCart(Products.backpack);
   await inventoryPage.addToCart(Products.onesie);
@@ -80,7 +80,7 @@ test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, checkoutIn
 });
 
 test('remove_from_cart_page', async ({ loginPage, inventoryPage, cartPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   await inventoryPage.addToCart(Products.backpack);
   await inventoryPage.addToCart(Products.onesie);

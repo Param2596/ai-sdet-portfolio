@@ -12,10 +12,7 @@ export const test = base.extend<{
   checkoutInfoPage: CheckoutInfoPage;
 }>({
   loginPage: async ({ page }, use) => {
-    const loginPage = new LoginPage(page);
-    await loginPage.goto();
-    await loginPage.login(credentials.username, credentials.password);
-    await use(loginPage);
+   await use(new LoginPage(page));
   },
   inventoryPage: async ({ page }, use) => {
     await use(new InventoryPage(page));

@@ -6,7 +6,7 @@ import { CheckoutCompletePage } from '../pages/CheckoutCompletePage';
 import { Products } from '../utils/products';
 
 test('checkout_info_reaches_overview', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   const cartPage = new CartPage(page);
   const checkoutInfo = new CheckoutInfoPage(page);
@@ -23,7 +23,7 @@ test('checkout_info_reaches_overview', async ({ loginPage, inventoryPage, page }
 });
 
 test('checkout_finishes_order', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   const cartPage = new CartPage(page);
   const checkoutInfo = new CheckoutInfoPage(page);
@@ -43,7 +43,7 @@ test('checkout_finishes_order', async ({ loginPage, inventoryPage, page }) => {
 });
 
 test('checkout_empty_first_name', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   const cartPage = new CartPage(page);
   const checkoutInfo = new CheckoutInfoPage(page);
@@ -61,7 +61,7 @@ test('checkout_empty_first_name', async ({ loginPage, inventoryPage, page }) => 
 });
 
 test('checkout_empty_last_name', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   const cartPage = new CartPage(page);
   const checkoutInfo = new CheckoutInfoPage(page);
@@ -79,7 +79,7 @@ test('checkout_empty_last_name', async ({ loginPage, inventoryPage, page }) => {
 });
 
 test('checkout_empty_postal_code', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   const cartPage = new CartPage(page);
   const checkoutInfo = new CheckoutInfoPage(page);
@@ -103,7 +103,7 @@ test('checkout_overview_totals_match', async ({
   checkoutInfoPage,
   page,
 }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
 
   const overview = new CheckoutOverviewPage(page);
 

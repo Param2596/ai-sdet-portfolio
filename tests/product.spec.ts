@@ -3,7 +3,7 @@ import { ProductPage } from '../pages/ProductPage';
 import { Products_cart } from '../utils/products';
 
 test('product_detail_shows_title', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
   const productPage = new ProductPage(page);
 
   await inventoryPage.openProduct('item-4-title-link');
@@ -11,7 +11,7 @@ test('product_detail_shows_title', async ({ loginPage, inventoryPage, page }) =>
 });
 
 test('product_detail_add_to_cart', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
   const productPage = new ProductPage(page);
 
   await inventoryPage.openProduct('item-4-title-link');

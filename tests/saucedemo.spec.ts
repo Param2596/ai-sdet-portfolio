@@ -42,7 +42,7 @@ test('empty_password', async({page}) => {
 });
 
 test('logout_returns_to_login', async({loginPage, inventoryPage, page}) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
   await inventoryPage.openMenu();
   await inventoryPage.logout();
   await expect(page).toHaveURL('https://www.saucedemo.com/');
@@ -50,7 +50,7 @@ test('logout_returns_to_login', async({loginPage, inventoryPage, page}) => {
 })
 
 test('sort_name_a_to_z', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
   await inventoryPage.sortBy('za'); // move off default first
   await inventoryPage.sortBy('az');
   await expect(page.locator('.inventory_item_name').first())
@@ -58,14 +58,14 @@ test('sort_name_a_to_z', async ({ loginPage, inventoryPage, page }) => {
 });
 
 test('sort_price_low_to_high', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
   await inventoryPage.sortBy('lohi');
   await expect(page.locator('.inventory_item_name').first())
     .toHaveText('Sauce Labs Onesie');
 });
 
 test('sort_price_high_to_low', async ({ loginPage, inventoryPage, page }) => {
-  void loginPage;
+  await page.goto('https://www.saucedemo.com/inventory.html');
   await inventoryPage.sortBy('hilo');
   await expect(page.locator('.inventory_item_name').first())
     .toHaveText('Sauce Labs Fleece Jacket');

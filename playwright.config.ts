@@ -34,41 +34,38 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+  {
+    name: 'setup',
+    testMatch: /auth\.setup\.ts/,
+  },
+  {
+    name: 'chromium',
+    use: {
+      ...devices['Desktop Chrome'],
+      storageState: 'playwright/.auth/user.json',
     },
-
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+    dependencies: ['setup'],
+    testIgnore: /auth\.setup\.ts/,
+  },
+  {
+    name: 'firefox',
+    use: {
+      ...devices['Desktop Firefox'],
+      storageState: 'playwright/.auth/user.json',
     },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+    dependencies: ['setup'],
+    testIgnore: /auth\.setup\.ts/,
+  },
+  {
+    name: 'webkit',
+    use: {
+      ...devices['Desktop Safari'],
+      storageState: 'playwright/.auth/user.json',
     },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
-  ],
+    dependencies: ['setup'],
+    testIgnore: /auth\.setup\.ts/,
+  },
+],
 
   /* Run your local dev server before starting the tests */
   // webServer: {
