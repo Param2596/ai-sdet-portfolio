@@ -1,6 +1,6 @@
-# AI SDET Portfolio
+# Playwright E2E Suite
 
-[![Playwright Tests](https://github.com/Param2596/ai-sdet-portfolio/actions/workflows/playwright.yml/badge.svg)](https://github.com/Param2596/ai-sdet-portfolio/actions/workflows/playwright.yml)
+[![Playwright Tests](https://github.com/Param2596/playwright-e2e-suite/actions/workflows/playwright.yml/badge.svg)](https://github.com/Param2596/playwright-e2e-suite/actions/workflows/playwright.yml)
 
 A **Playwright + TypeScript automation portfolio** covering UI and API testing, reusable authentication, cross-browser reliability, and CI/CD.
 

@@ -1,5 +1,5 @@
 {
-  "name": "ai-sdet-portfolio",
+  "name": "playwright-e2e-suite",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,19 +9,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Param2596/ai-sdet-portfolio.git"
+    "url": "git+https://github.com/Param2596/playwright-e2e-suite.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/Param2596/ai-sdet-portfolio/issues"
+    "url": "https://github.com/Param2596/playwright-e2e-suite/issues"
   },
-  "homepage": "https://github.com/Param2596/ai-sdet-portfolio#readme",
+  "homepage": "https://github.com/Param2596/playwright-e2e-suite#readme",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.6.1",
-    "tsx": "^4.23.13"
+    "tsx": "^4.23.13",
+    "zod": "^4.6.5"
   }
 }
