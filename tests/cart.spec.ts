@@ -77,6 +77,8 @@ test('cancel_checkout_1', async ({loginPage, inventoryPage, cartPage, checkoutIn
   await checkoutInfoPage.cancelCheckout();
 
   await inventoryPage.checkCartNumber(2);
+
+  await inventoryPage.checkCartNumber(2);
 });
 
 test('remove_from_cart_page', async ({ loginPage, inventoryPage, cartPage, page }) => {
