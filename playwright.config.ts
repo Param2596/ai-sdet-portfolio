@@ -46,7 +46,7 @@ export default defineConfig({
       storageState: 'playwright/.auth/user.json',
     },
     dependencies: ['setup'],
-    testIgnore: /auth\.setup\.ts/,
+    testIgnore: /auth\.setup\.ts|tests\/api\//,
   },
   {
     name: 'firefox',
@@ -55,7 +55,7 @@ export default defineConfig({
       storageState: 'playwright/.auth/user.json',
     },
     dependencies: ['setup'],
-    testIgnore: /auth\.setup\.ts/,
+    testIgnore: /auth\.setup\.ts|tests\/api\//,
   },
   {
     name: 'webkit',
@@ -64,7 +64,7 @@ export default defineConfig({
       storageState: 'playwright/.auth/user.json',
     },
     dependencies: ['setup'],
-    testIgnore: /auth\.setup\.ts/,
+    testIgnore: /auth\.setup\.ts|tests\/api\//,
   },
   {
     name: 'api',
