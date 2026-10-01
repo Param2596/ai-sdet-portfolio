@@ -1,5 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
-
+import dotenv from 'dotenv';
+dotenv.config();
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -65,6 +66,16 @@ export default defineConfig({
     dependencies: ['setup'],
     testIgnore: /auth\.setup\.ts/,
   },
+  {
+    name: 'api',
+    testMatch: /tests\/api\/.*\.spec\.ts/,
+    use: {
+      baseURL: 'https://reqres.in',
+      extraHTTPHeaders: {
+        'x-api-key': process.env.REQRES_API_KEY ?? '',
+      },
+    },
+  }
 ],
 
   /* Run your local dev server before starting the tests */
